@@ -1,0 +1,27 @@
+﻿@model IEnumerable<TaacTapTerminalApp.Models.RestaurantTable>
+
+@{
+    ViewBag.Title = "Tables";
+}
+
+<h2>Tables</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            Table:   
+            @Html.DisplayFor(modelItem => item.TableNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RestaurantTableId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RestaurantTableId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RestaurantTableId })
+        </td>
+    </tr>
+}
+
+</table>

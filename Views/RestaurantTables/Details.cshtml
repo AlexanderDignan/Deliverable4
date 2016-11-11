@@ -1,0 +1,49 @@
+﻿@model TaacTapTerminalApp.Models.RestaurantTable
+
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+
+<div>
+    <h4>Restaurant Table</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TableNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TableNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reservations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reservations.Count)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RestaurantTableId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+<!-- HERE DOWN IS ORIGINAL
+<h2>Details</h2>
+
+<div>
+    <h4>RestaurantTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+</div>
+<p>
+    //@Html.ActionLink("Edit", "Edit", new { id = Model.RestaurantTableId }) |
+    //@Html.ActionLink("Back to List", "Index")
+</p>
+-->
+

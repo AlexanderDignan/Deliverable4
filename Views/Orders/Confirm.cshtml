@@ -1,0 +1,65 @@
+﻿@model TaacTapTerminalApp.Models.Order
+
+@{
+    ViewBag.Title = "Confirm";
+}
+
+<h2>Confirm Order</h2>
+
+<h3>Are you sure you want to confirm this order?</h3>
+<div>
+    <h4>Order</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.OrderId)
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RestaurantTable.RestaurantTableId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestaurantTable.RestaurantTableId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTimeCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTimeCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+
+        <dt>
+            @Html.HiddenFor(model => model.OrderId)
+        </dt>
+        <dd>
+            @Html.HiddenFor(model => model.OrderId)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Confirm" class="btn btn-default" />
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

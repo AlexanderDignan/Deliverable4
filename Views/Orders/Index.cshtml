@@ -1,0 +1,56 @@
+﻿@model IEnumerable<TaacTapTerminalApp.Models.Order>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<center><h2>Pending Orders</h2></center>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<!--<div class="col-md-offset-5 col-md-10">
+    <input type="submit" value="GenieTap" class="btn btn-default" onclick="location.href='@Url.Action("GenieTap", "Orders")'">
+</div>-->
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantTable.RestaurantTableId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTimeCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+     <tr><a>
+    <td>
+        @Html.DisplayFor(modelItem => item.RestaurantTable.RestaurantTableId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.User.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateTimeCreated)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalPrice)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.OrderId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.OrderId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.OrderId }) |
+        @Html.ActionLink("Confirm", "Confirm", new { id = item.OrderId });
+        
+    </td>
+</a>
+    </tr>
+}
+</table>
